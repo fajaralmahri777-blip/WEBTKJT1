@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daftar Siswa X TKJT 1</title>
+<link rel="stylesheet" href="css/siswa.css">
+</head>
+
+<body>
+
+<!-- EFFECT -->
+<div class="grid"></div>
+<div class="stars"></div>
+<div class="meteors"></div>
+
+<!-- HEADER -->
+<header class="top-area">
+  <!-- Logo dan Judul Kelas di Kiri -->
+  <div class="logo-section">
+    <svg class="cyber-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Logo Cyberpunk Sederhana: Ikon Circuit dengan Glow -->
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge> 
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="#00ffff" stroke-width="3" filter="url(#glow)"/>
+      <path d="M20 50 L40 30 L60 70 L80 50" stroke="#00ffff" stroke-width="3" fill="none" filter="url(#glow)"/>
+      <circle cx="50" cy="50" r="5" fill="#00ffff" filter="url(#glow)"/>
+    </svg>
+    <h2 class="class-title">X <span class="tkj-spacing">TKJ</span> 1</h2>
+  </div>
+  
+  <!-- Hamburger Menu di Kanan -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" id="hamburger-toggle">
+      <span class="menu-text">Menu</span>
+      <div class="hamburger-lines">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!-- Dropdown Menu -->
+    <nav class="dropdown-menu" id="dropdown-menu">
+      <a href="beranda.html">Beranda</a>
+      <a href="struktur.html">Struktur Kelas</a>
+      <a href="siswa.html" class="active">Daftar Siswa</a> <!-- Active untuk halaman ini -->
+      <a href="galeri.html">Galeri</a>
+      <a href="tentang.html">Tentang</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<!-- CONTENT -->
+<main class="daftar">
+  <h1 class="anggota">ANGGOTA KELAS X TKJT 1</h1>
+
+  <div class="search-container">
+    <input type="text" id="search" placeholder="Cari Nama Siswa...">
+  </div>
+
+  <div class="siswa-grid" id="siswaGrid">
+    <div class="box">1. Aditya Saputra</div>
+    <div class="box">2. Adzhan Abizar Arya Rangga</div>
+    <div class="box">3. Alfian Khoer Ramadan</div>
+    <div class="box">4. Al Fira Az Zahwa</div>
+    <div class="box">5. Anita Rohmah</div>
+    <div class="box">6. Ayesha Aghitstya Alema</div>
+    <div class="box">7. Ayu Anastasya</div>
+    <div class="box">8. Bunga Citra Lestari</div>
+    <div class="box">9. Citra Airin Listiani</div>
+    <div class="box">10. Dewi Nayla Anastasya</div>
+    <div class="box">11. Fajar Almahri</div>
+    <div class="box">12. Fiqri Ramadhan</div>
+    <div class="box">13. Harpa Sanda Upa Paguling</div>
+    <div class="box">14. Heni Mulyani</div>
+    <div class="box">15. Hera</div>
+    <div class="box">16. Jihan Febrianti</div>
+    <div class="box">17. Lulu Suraya</div>
+    <div class="box">18. Maulana Maliq Ibrahim</div>
+    <div class="box">19. Mio Regina Aprilia Putri</div>
+    <div class="box">20. Muhamad Bintang Syifatul Huda</div>
+    <div class="box">21. Muhamad Erlangga</div>
+    <div class="box">22. Muhamad Madan</div>
+    <div class="box">23. Nazwa Khoirunnizma</div>
+    <div class="box">24. Raditya Maulana Ibrahim</div>
+    <div class="box">25. Rara Atyla Habsari</div>
+    <div class="box">26. Rumsih Amanda</div>
+    <div class="box">27. Sahrini Aprianti</div>
+    <div class="box">28. Shaluna Oktavia Suci</div>
+    <div class="box">29. Sri Rahayu (Apink)</div>
+    <div class="box">30. Sri Rahayu (Mano)</div>
+    <div class="box">31. Susi Melyani</div>
+    <div class="box">32. Upit Nurhidayah</div>
+    <div class="box">33. Vira Puspa Nirmala</div>
+    <div class="box">34. Yuni Aura Putri</div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © ANGGOTA KELAS X TKJT 1
+</footer>
+
+<!-- Script JS untuk Navigasi -->
+<script src="jsnavigasi/jsnavigasisiswa.js"></script>
+<!-- Script JS untuk Pencarian Siswa (tetap ada) -->
+<script src="js/siswa.js"></script>
+</body>
+</html>

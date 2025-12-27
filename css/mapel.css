@@ -1,0 +1,229 @@
+/* ===== RESET ===== */
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height:100vh;
+  background:#050b14;
+  color:#eaffff;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+/* ===== GRID & STARS & METEORS ===== */
+.grid {
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(0,255,255,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,.12) 1px, transparent 1px);
+  background-size:44px 44px;
+  animation:gridMove 3s linear infinite;
+  z-index:-4;
+}
+@keyframes gridMove { from{transform:translate(0,0)} to{transform:translate(44px,44px)} }
+
+.stars {
+  position:fixed; inset:0;
+  background:
+    radial-gradient(1px 1px at 5% 10%,#fff,transparent),
+    radial-gradient(2px 2px at 15% 30%,#fff,transparent),
+    radial-gradient(1px 1px at 25% 70%,#fff,transparent),
+    radial-gradient(2px 2px at 40% 20%,#fff,transparent);
+  animation:starsMove 4s linear infinite;
+  z-index:-3;
+}
+@keyframes starsMove { from{transform:translateY(-100%)} to{transform:translateY(100%)} }
+
+.meteors::before {
+  content:"";
+  position:fixed;
+  width:260px;
+  height:2px;
+  background:linear-gradient(to right,transparent,#00ffff,transparent);
+  animation:meteor 1.4s linear infinite;
+  z-index:-2;
+}
+@keyframes meteor { from{transform:translate(-200px,-200px) rotate(45deg)} to{transform:translate(120vw,120vh) rotate(45deg)} }
+
+/* ===== CONTAINER ===== */
+.mapel-container {
+  padding:50px 20px;
+  max-width:1200px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.mapel-container h1 {
+  color:#00ffff;
+  text-shadow:0 0 30px #00ffff;
+  font-size:clamp(2rem,5vw,3rem);
+  margin-bottom:40px;
+  animation:titleFloat 5s ease-in-out infinite;
+}
+@keyframes titleFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-15px);} }
+
+/* ===== MAPEL BOX ===== */
+.mapel-row {
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-bottom:25px;
+}
+
+.mapel-box {
+  background: linear-gradient(135deg, #041222 0%, #00111f 100%);
+  border:2px solid #00ffff;
+  padding:20px;
+  width:260px;
+  height:180px;
+  border-radius:12px;
+  box-shadow: 0 0 25px #00ffff55, inset 0 0 15px #00ffff22;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+  animation: neonFlicker 3s infinite;
+}
+
+.mapel-box::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  border:2px solid transparent;
+  border-image: linear-gradient(90deg,#00ffff,#00ff99,#00ffff) 1;
+  animation:glitch 3s linear infinite;
+  pointer-events:none;
+}
+
+@keyframes glitch {
+  0%{clip-path: inset(0% 100% 0% 0%);}
+  25%{clip-path: inset(10% 0% 20% 0%);}
+  50%{clip-path: inset(30% 10% 20% 0%);}
+  75%{clip-path: inset(20% 0% 10% 10%);}
+  100%{clip-path: inset(0% 0% 0% 0%);}
+}
+
+.mapel-box h2 {
+  color:#00ffff;
+  text-shadow:0 0 10px #00ffff, 0 0 20px #00ffff;
+  margin-bottom:8px;
+  font-size:1.4rem;
+}
+
+.mapel-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  font-size: 1rem;
+  color: #ffffff;
+  text-shadow: 0 0 5px #00ffff;
+}
+
+.mapel-box li {
+  margin: 3px 0;
+  padding-left: 5px;
+}
+
+/* Efek Scan Horizontal */
+.mapel-box::after {
+  content:"";
+  position:absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00ffff, #ffffff, #00ffff, transparent);
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  animation: scanBrutal 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mapel-box .data-stream {
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,255,255,0.05),
+    rgba(0,255,255,0.05) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  animation:cyberStream 1.8s linear infinite;
+  border-radius:12px;
+}
+
+@keyframes scanBrutal {
+  0% { top: -2px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes cyberStream { 0%{background-position:0 0;} 100%{background-position:100% 100%;} }
+@keyframes neonFlicker {
+  0%,19%,21%,23%,25%,54%,56%,100%{opacity:1; box-shadow:0 0 25px #00ffff, inset 0 0 15px #00ffff;}
+  20%,22%,24%,55%{opacity:0.4; box-shadow:0 0 10px #00ffff, inset 0 0 5px #00ffff;}
+}
+
+/* Hover Effect */
+.mapel-box:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 50px #00ffff, inset 0 0 25px #00ffff;
+}
+
+/* ===== BUTTONS ===== */
+.mapel-buttons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:30px;
+  margin-bottom:50px;
+}
+
+.btn-box{
+  padding:12px 26px;
+  border:2px solid #00ffff;
+  border-radius:10px;
+  color:#00ffff;
+  text-decoration:none;
+  background:#041222;
+  box-shadow:0 0 12px #00ffff55;
+  transition:.3s;
+  font-size:1rem;
+  font-weight:bold;
+}
+
+.btn-box:hover{
+  background:#00ffff22;
+  transform:translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  text-align:center;
+  padding:16px;
+  font-size:.85rem;
+  color:#00ffff;
+  text-shadow:0 0 15px #00ffff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .mapel-box{width:200px; height:160px;}
+}
+
+@media(max-width:480px){
+  .mapel-box{width:160px; height:140px;}
+}

@@ -1,0 +1,239 @@
+/* ===== RESET ===== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+  background:#050b14;
+  color:#eaffff;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ===== EFFECT BACKGROUND ===== */
+.grid{
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(0,255,255,.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,.12) 1px, transparent 1px);
+  background-size:48px 48px;
+  animation:gridMove 3s linear infinite;
+  z-index:-4;
+}
+@keyframes gridMove{
+  to{transform:translate(48px,48px)}
+}
+
+.stars{
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(1px 1px at 20% 20%,#fff,transparent),
+    radial-gradient(2px 2px at 40% 60%,#fff,transparent),
+    radial-gradient(1px 1px at 70% 40%,#fff,transparent);
+  animation:starsMove 6s linear infinite;
+  z-index:-3;
+}
+@keyframes starsMove{
+  to{transform:translateY(100%)}
+}
+
+.meteors::before{
+  content:"";
+  position:fixed;
+  width:260px;
+  height:2px;
+  background:linear-gradient(to right,transparent,#00ffff,transparent);
+  animation:meteor 2s linear infinite;
+  z-index:-2;
+}
+@keyframes meteor{
+  to{transform:translate(120vw,120vh) rotate(45deg)}
+}
+
+/* ===== CONTAINER ===== */
+.piket-container{
+  padding:50px 20px;
+  max-width:1200px;
+  margin:auto;
+  text-align:center;
+}
+
+.piket-container h1{
+  color:#00ffff;
+  text-shadow:0 0 25px #00ffff;
+  margin-bottom:40px;
+}
+
+/* ===== INSTRUKSI KLIK ===== */
+.klik-instruksi {
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+/* ===== LAYOUT ===== */
+.piket-row{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin-bottom:30px;
+  flex-wrap:wrap;
+}
+
+.piket-col{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* ===== JUDUL HARI ===== */
+.piket-day{
+  margin-bottom:10px;
+  color:#00ffff;
+  text-shadow:0 0 12px #00ffff;
+}
+
+/* ===== BOX PIKET ===== */
+.piket-box{
+  position:relative;
+  width:200px;
+  height:180px;
+  background:#041222;
+  border:1px solid #00ffff;
+  border-radius:12px;
+  box-shadow:0 0 18px #00ffff44;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  transform: translateZ(0); /* Hardware acceleration untuk smooth */
+}
+
+/* Styling untuk daftar nama di dalam box */
+.piket-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  font-size: 1em;
+  color: #eaffff;
+  opacity: 0.9;
+}
+
+.piket-box li {
+  margin: 3px 0;
+  padding-left: 5px;
+}
+
+/* ===== FLIP CARD STYLES ===== */
+.piket-card {
+  position: relative;
+  width: 200px;
+  height: 180px;
+  perspective: 1000px;
+  cursor: pointer;
+  transform: translateZ(0); /* Hardware acceleration */
+}
+
+.piket-card .piket-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.5s ease; /* Smooth flip, durasi 0.5s untuk tidak lag */
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.piket-card .front {
+  transform: rotateY(0deg);
+}
+
+.piket-card .back {
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #041222;
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 18px #00ffff44;
+}
+
+.piket-card.flipped .front {
+  transform: rotateY(-180deg);
+}
+
+.piket-card.flipped .back {
+  transform: rotateY(0deg);
+}
+
+/* Styling untuk foto di back */
+.piket-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Efek Scan Horizontal pada Box (DIPERTAHANKAN) */
+.piket-box::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00ffff, #ffffff, #00ffff, transparent);
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  animation: scanBrutal 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes scanBrutal {
+  0% { top: -2px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* ===== TOMBOL (2 BOX SAJA) ===== */
+.button-row{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin:40px 0;
+  flex-wrap:wrap;
+}
+
+.btn-box{
+  padding:12px 26px;
+  border:2px solid #00ffff;
+  border-radius:10px;
+  color:#00ffff;
+  text-decoration:none;
+  background:#041222;
+  box-shadow:0 0 12px #00ffff55;
+  transition:.3s;
+}
+
+.btn-box:hover{
+  background:#00ffff22;
+  transform:translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  text-align:center;
+  font-size:.85rem;
+  color:#00ffff;
+  text-shadow:0 0 10px #00ffff;
+  margin-bottom:20px;
+}

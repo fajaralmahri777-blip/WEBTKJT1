@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GALERI X TKJ 1</title>
+<link rel="stylesheet" href="css/galeri.css">
+</head>
+<body>
+
+<!-- EFFECT -->
+<div class="grid"></div>
+<div class="stars"></div>
+<div class="meteors"></div>
+
+<!-- HEADER -->
+<header class="top-area">
+  <!-- Logo dan Judul Kelas di Kiri -->
+  <div class="logo-section">
+    <svg class="cyber-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Logo Cyberpunk Sederhana: Ikon Circuit dengan Glow -->
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge> 
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="#00ffff" stroke-width="3" filter="url(#glow)"/>
+      <path d="M20 50 L40 30 L60 70 L80 50" stroke="#00ffff" stroke-width="3" fill="none" filter="url(#glow)"/>
+      <circle cx="50" cy="50" r="5" fill="#00ffff" filter="url(#glow)"/>
+    </svg>
+    <h2 class="class-title">X <span class="tkj-spacing">TKJT</span> 1</h2>
+  </div>
+  
+  <!-- Hamburger Menu di Kanan -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" id="hamburger-toggle">
+      <span class="menu-text">Menu</span>
+      <div class="hamburger-lines">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!-- Dropdown Menu -->
+    <nav class="dropdown-menu" id="dropdown-menu">
+      <a href="beranda.html">Beranda</a>
+      <a href="struktur.html">Struktur Kelas</a>
+      <a href="siswa.html">Daftar Siswa</a>
+      <a href="galeri.html" class="active">Galeri</a> <!-- Active untuk halaman ini -->
+      <a href="tentang.html">Tentang</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<!-- GALERI -->
+<main class="galeri">
+  <h1>X TKJT 1 Moments</h1>
+  <p class="sub-text">Klik Untuk Perbesar Foto</p>
+
+  <div class="gallery-container">
+
+    <!-- Baris 1 -->
+    <div class="gallery-row-wrapper">
+      <button class="scroll-btn left" onclick="scrollRow(this,-1)">&#10094;</button>
+      <div class="gallery-row">
+        <div class="gallery-item"><img src="images/foto1.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto2.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto3.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto4.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto5.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto6.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto7.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto8.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto9.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto10.jpg" alt=""></div>
+      </div>
+      <button class="scroll-btn right" onclick="scrollRow(this,1)">&#10095;</button>
+    </div>
+
+    <!-- Baris 2 -->
+    <div class="gallery-row-wrapper">
+      <button class="scroll-btn left" onclick="scrollRow(this,-1)">&#10094;</button>
+      <div class="gallery-row">
+        <div class="gallery-item"><img src="images/foto11.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto12.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto13.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto14.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto15.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto16.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto17.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto18.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto19.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto20.jpg" alt=""></div>
+      </div>
+      <button class="scroll-btn right" onclick="scrollRow(this,1)">&#10095;</button>
+    </div>
+
+    <!-- Baris 3 -->
+    <div class="gallery-row-wrapper">
+      <button class="scroll-btn left" onclick="scrollRow(this,-1)">&#10094;</button>
+      <div class="gallery-row">
+        <div class="gallery-item"><img src="images/foto21.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto22.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto23.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto24.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto25.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto26.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto27.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto28.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto29.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto30.jpg" alt=""></div>
+      </div>
+      <button class="scroll-btn right" onclick="scrollRow(this,1)">&#10095;</button>
+    </div>
+
+    <!-- Baris 4 -->
+    <div class="gallery-row-wrapper">
+      <button class="scroll-btn left" onclick="scrollRow(this,-1)">&#10094;</button>
+      <div class="gallery-row">
+        <div class="gallery-item"><img src="images/foto31.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto32.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto33.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto34.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto35.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto36.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto37.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto38.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto39.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto40.jpg" alt=""></div>
+      </div>
+      <button class="scroll-btn right" onclick="scrollRow(this,1)">&#10095;</button>
+    </div>
+
+    <!-- Baris 5 -->
+    <div class="gallery-row-wrapper">
+      <button class="scroll-btn left" onclick="scrollRow(this,-1)">&#10094;</button>
+      <div class="gallery-row">
+        <div class="gallery-item"><img src="images/foto41.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto42.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto43.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto44.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto45.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto46.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto47.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto48.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto49.jpg" alt=""></div>
+        <div class="gallery-item"><img src="images/foto50.jpg" alt=""></div>
+      </div>
+      <button class="scroll-btn right" onclick="scrollRow(this,1)">&#10095;</button>
+    </div>
+
+  </div>
+</main>
+
+<!-- Zoom Overlay -->
+<div class="zoom-overlay" id="zoomOverlay">
+  <img src="" alt="">
+</div>
+
+<footer class="footer">
+  © GALERI KELAS X TKJ 1
+</footer>
+
+<!-- Script JS untuk Navigasi -->
+<script src="jsnavigasi/jsnavigasigaleri.js"></script>
+<!-- Script JS untuk Galeri (tetap ada) -->
+<script src="js/galeri.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #050b14;
+  color: #00ffff;
+  overflow: hidden;
+}
+
+/* ===== GRID & STARS & METEORS (EFEK HIGH-TECH DI LUAR BOX) ===== */
+/* Grid bergerak cepat (sudah ada, dipertahankan) */
+.grid {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(0,255,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: -1;
+  animation: gridMove 2s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(48px, 48px); }
+}
+
+/* Stars: Bintang-bintang bergerak vertikal untuk efek luar angkasa cyberpunk */
+.stars {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(1px 1px at 5% 10%, #fff, transparent),
+    radial-gradient(2px 2px at 15% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 25% 70%, #fff, transparent),
+    radial-gradient(2px 2px at 40% 20%, #fff, transparent);
+  animation: starsMove 4s linear infinite;
+  z-index: -3; /* Di bawah grid, di luar box */
+}
+
+@keyframes starsMove {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
+}
+
+/* Meteors: Meteor bergerak diagonal dengan glow cyan untuk high-tech */
+.meteors::before {
+  content: "";
+  position: fixed;
+  width: 260px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00ffff, transparent);
+  animation: meteor 1.4s linear infinite;
+  z-index: -2; /* Di bawah grid, di luar box */
+}
+
+@keyframes meteor {
+  from { transform: translate(-200px, -200px) rotate(45deg); }
+  to { transform: translate(120vw, 120vh) rotate(45deg); }
+}
+
+/* ===== LOADING & SCAN ===== */
+#loading, #scan {
+  position: fixed;
+  inset: 0;
+  background: #050b14;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99; /* Di atas semua efek background */
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #00ffff44;
+  border-top: 4px solid #00ffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.scan-box {
+  position: absolute;
+  top: -30%;
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(to bottom, transparent, rgba(0,255,255,.35), transparent);
+  animation: scanMove 1.2s linear infinite;
+}
+
+@keyframes scanMove {
+  from { top: -30%; }
+  to { top: 120%; }
+}
+
+#scan p {
+  margin-top: 20px;
+  font-size: 1.4rem;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+/* ===== PROFIL ===== */
+.hidden { display: none; }
+
+.profil-container {
+  padding: 50px 20px;
+  text-align: center;
+  position: relative; /* Agar konten di atas efek background */
+  z-index: 1; /* Di atas efek background tapi di bawah loading */
+}
+
+/* ===== CARD (BERSIH & RINGAN) ===== */
+/* ===== CARD (BERSIH & RINGAN) ===== */
+.profil-card {
+  max-width: 420px;
+  margin: auto;
+  margin-top: 50px; /* Tambahan: Jarak lebih besar dari judul agar box lebih ke bawah */
+  padding: 25px;
+  /* Background gradient mirip mapel-box untuk efek cyberpunk */
+  background: linear-gradient(135deg, #041222 0%, #00111f 100%);
+  /* Border dengan glow dan animasi glitch */
+  border: 2px solid #00ffff;
+  border-radius: 14px;
+  box-shadow: 0 0 25px #00ffff55, inset 0 0 15px #00ffff22;
+  position: relative;
+  overflow: hidden;
+  /* Animasi neon flicker untuk high-tech */
+  animation: neonFlicker 3s infinite;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Efek Scan High-Tech seperti di mapel: Garis horizontal yang bergerak dari atas ke bawah */
+.profil-card::after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00ffff, #ffffff, #00ffff, transparent);
+  box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+  animation: scanBrutal 2.5s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Border animasi glitch untuk cyberpunk */
+.profil-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  border-image: linear-gradient(90deg, #00ffff, #ff00ff, #00ffff) 1;
+  animation: glitchBorder 1.2s infinite;
+  pointer-events: none;
+}
+
+/* Data stream background untuk efek aliran data cyberpunk */
+.profil-card .data-stream {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0,255,255,0.05),
+    rgba(0,255,255,0.05) 2px,
+    transparent 2px,
+    transparent 6px
+  );
+  animation: cyberStream 1.8s linear infinite;
+  border-radius: 14px;
+}
+
+@keyframes scanBrutal {
+  0% { top: -2px; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes glitchBorder {
+  0% { clip-path: inset(0% 100% 0% 0%); }
+  20% { clip-path: inset(10% 0% 20% 0%); }
+  40% { clip-path: inset(30% 10% 20% 0%); }
+  60% { clip-path: inset(20% 0% 10% 10%); }
+  80% { clip-path: inset(5% 5% 5% 5%); }
+  100% { clip-path: inset(0% 0% 0% 0%); }
+}
+
+@keyframes cyberStream {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+@keyframes neonFlicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 25px #00ffff, inset 0 0 15px #00ffff;
+  }
+  20%, 22%, 24%, 55% {
+    opacity: 0.4;
+    box-shadow: 0 0 10px #00ffff, inset 0 0 5px #00ffff;
+  }
+}
+
+/* Hover effect untuk interaksi high-tech */
+.profil-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px #00ffff, inset 0 0 25px #00ffff;
+}
+
+/* ===== FOTO ===== */
+.foto-area {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2; /* Agar foto di atas efek */
+}
+
+.foto-area img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00ffff;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/* ===== BIODATA ===== */
+.biodata {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 2; /* Agar teks di atas efek */
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 120px 20px 1fr;
+  align-items: center;
+  text-align: left;
+}
+
+.label {
+  color: #7ffcff;
+}
+
+.colon {
+  text-align: center;
+}
+
+.row span:last-child {
+  color: #ffffff;
+}
+
+/* ===== BUTTON ===== */
+.btn-back {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 20px;
+  border: 2px solid #00ffff;
+  border-radius: 8px;
+  color: #00ffff;
+  text-decoration: none;
+  box-shadow: 0 0 10px #00ffff55;
+  transition: .3s;
+  position: relative;
+  z-index: 2; /* Agar tombol di atas efek */
+}
+
+.btn-back:hover {
+  background: #00ffff22;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: .85rem;
+  text-shadow: 0 0 10px #00ffff;
+  position: relative;
+  z-index: 1; /* Di atas efek background */
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 100px 16px 1fr;
+  }
+}

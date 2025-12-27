@@ -1,0 +1,323 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #050b14;
+  color: #eaffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* ===== GRID ===== */
+.grid {
+  position: fixed; inset: 0;
+  background:
+    linear-gradient(rgba(0,255,255,.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,.15) 1px, transparent 1px);
+  background-size: 44px 44px;
+  animation: gridMove 3s linear infinite;
+  z-index: -4;
+}
+@keyframes gridMove {
+  from { transform: translate(0,0); }
+  to { transform: translate(44px,44px); }
+}
+
+/* ===== STARS ===== */
+.stars {
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(1px 1px at 5% 10%,#fff,transparent),
+    radial-gradient(2px 2px at 15% 30%,#fff,transparent),
+    radial-gradient(1px 1px at 25% 70%,#fff,transparent),
+    radial-gradient(2px 2px at 40% 20%,#fff,transparent),
+    radial-gradient(1px 1px at 55% 60%,#fff,transparent),
+    radial-gradient(2px 2px at 70% 30%,#fff,transparent),
+    radial-gradient(1px 1px at 85% 80%,#fff,transparent),
+    radial-gradient(2px 2px at 95% 50%,#fff,transparent);
+  animation: starsMove 4s linear infinite;
+  z-index: -3;
+}
+@keyframes starsMove {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100%); }
+}
+
+/* ===== METEOR ===== */
+.meteors::before, .meteors::after {
+  content:""; position: fixed; width: 240px; height: 2px;
+  background: linear-gradient(to right,transparent,#00ffff,transparent);
+  animation: meteor 1.4s linear infinite; z-index: -2;
+}
+.meteors::after {
+  top: 35%; left: 60%; animation-delay: .6s;
+}
+@keyframes meteor {
+  from { transform: translate(-200px,-200px) rotate(45deg); }
+  to { transform: translate(120vw,120vh) rotate(45deg); }
+}
+
+/* ===== HEADER ===== */
+.top-area {
+  background: linear-gradient(180deg,#061a2f,#041222);
+  padding: 23px 10px;
+  position: relative; /* Ditambahkan untuk mendukung posisi hamburger */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky; top: 0; z-index: 100;
+}
+
+/* ===== LOGO SECTION ===== */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Jarak antara logo dan teks */
+}
+
+.cyber-logo {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 10px #00ffff);
+  animation: logoGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes logoGlow {
+  from { filter: drop-shadow(0 0 10px #00ffff); }
+  to { filter: drop-shadow(0 0 20px #00ffff); }
+}
+
+.class-title {
+  font-size: 2rem; /* Ukuran font diperbesar untuk lebih besar */
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff;
+  animation: titleFloat 3s ease-in-out infinite;
+}
+
+.class-title .tkj-spacing {
+  letter-spacing: 8px; /* Jarak antar huruf di TKJ diperlebar */
+}
+
+@keyframes titleFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger-menu {
+  display: flex;
+  justify-content: flex-end; /* Paling kanan */
+  align-items: center;
+  position: relative;
+}
+
+.hamburger-icon {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #7ffcff;
+  text-shadow: 0 0 10px #00ffff;
+  transition: .3s;
+}
+
+.menu-text {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.hamburger-lines span {
+  width: 25px;
+  height: 3px;
+  background: #00ffff;
+  box-shadow: 0 0 5px #00ffff;
+  transition: .3s;
+}
+
+.hamburger-icon:hover .hamburger-lines span {
+  background: #00ffff;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #041222;
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 20px #00ffff44;
+  display: none; /* Tersembunyi secara default */
+  flex-direction: column;
+  align-items: center; /* Tengah horizontal */
+  justify-content: center; /* Tengah vertikal */
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 10;
+  animation: fadeDown .5s ease-out;
+}
+
+.dropdown-menu.show {
+  display: flex;
+}
+
+.dropdown-menu a {
+  color: #7ffcff;
+  text-decoration: none;
+  padding: 12px 20px; /* Ukuran kotak sama */
+  margin: 5px 0;
+  border-radius: 8px;
+  border: 1px solid #00ffff;
+  box-shadow: 0 0 10px #00ffff44;
+  text-shadow: 0 0 10px #00ffff;
+  width: 150px; /* Lebar sama untuk semua */
+  text-align: center;
+  transition: .3s;
+  animation: menuFloat 3.5s ease-in-out infinite;
+}
+
+.dropdown-menu a:nth-child(2) { animation-delay: .3s; }
+.dropdown-menu a:nth-child(3) { animation-delay: .6s; }
+.dropdown-menu a:nth-child(4) { animation-delay: .9s; }
+.dropdown-menu a:nth-child(5) { animation-delay: 1.2s; }
+.dropdown-menu a:nth-child(6) { animation-delay: 1.5s; }
+
+.dropdown-menu a:hover {
+  background: #00ffff22;
+  box-shadow: 0 0 25px #00ffff;
+  transform: scale(1.05);
+}
+
+/* Active state untuk halaman saat ini */
+.dropdown-menu a.active {
+  background: #00ffff44;
+  box-shadow: 0 0 30px #00ffff, 0 0 50px #00ffff44;
+  text-shadow: 0 0 20px #00ffff;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes menuFloat {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ===== DIVIDER ===== */
+/* Dihapus untuk menghilangkan garis hijau di bawah menu, seperti di halaman lainnya */
+
+/* ===== GALERI ===== */
+.galeri { 
+  padding: 30px 20px; 
+  text-align: center; 
+}
+.galeri h1 {
+  font-size: clamp(2rem,5vw,3rem);
+  color: #00ffff;
+  text-shadow: 0 0 30px #00ffff;
+  margin-bottom: 10px;
+  animation: galeriTitleFloat 5s ease-in-out infinite;  /* Diubah ke keyframe terpisah */
+}
+@keyframes galeriTitleFloat {  /* Keyframe baru untuk judul galeri */
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Sub-text klik untuk melihat foto */
+.sub-text {
+  font-size: 0.9rem;
+  color: #00ffffaa;
+  margin-bottom: 20px;
+  animation: shimmer 2s linear infinite alternate;
+}
+@keyframes shimmer {
+  0% { text-shadow: 0 0 5px #00ffff; }
+  50% { text-shadow: 0 0 15px #00ffff, 0 0 20px #00ffffaa; }
+  100% { text-shadow: 0 0 5px #00ffff; }
+}
+
+/* ===== GALLERY ROW ===== */
+.gallery-container { display: flex; flex-direction: column; gap: 60px; }
+.gallery-row-wrapper { position: relative; display: flex; align-items: center; }
+.scroll-btn {
+  background: #00ffff22; border: none; color: #00ffff;
+  font-size: 2rem; cursor: pointer; padding: 8px; border-radius: 6px;
+  transition: .3s; z-index: 10;
+}
+.scroll-btn:hover { background: #00ffff44; transform: scale(1.2); }
+.gallery-row { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding: 10px; }
+.gallery-row::-webkit-scrollbar { display: none; }
+.gallery-item {
+  min-width: 480px;
+  height: 300px;
+  background: #041222;
+  border: 2px solid #00ffff;
+  border-radius: 15px;
+  flex-shrink: 0;
+  transition: transform .3s, box-shadow .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; }
+
+/* ===== ZOOM OVERLAY ===== */
+.zoom-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9); display: none; justify-content: center; align-items: center; z-index: 10000;
+}
+.zoom-overlay img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+
+/* ===== FOOTER ===== */
+.footer { 
+  text-align: center; 
+  padding: 16px; 
+  font-size: .85rem; 
+  color: #00ffff; 
+  text-shadow: 0 0 15px #00ffff; 
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){ 
+  .gallery-item { min-width: 360px; height: 240px; }
+  .menu { gap: 6px; }
+}
+@media(max-width:480px){
+  .gallery-item { min-width: 240px; height: 160px; }
+  .menu { gap: 4px; }
+  .logo-section {
+    gap: 5px;
+  }
+  .cyber-logo {
+    width: 40px;
+    height: 40px;
+  }
+  .class-title {
+    font-size: 1.5rem; /* Ukuran font dikurangi di mobile */
+  }
+  .class-title .tkj-spacing {
+    letter-spacing: 5px; /* Jarak huruf dikurangi di mobile */
+  }
+  .dropdown-menu a {
+    width: 120px; /* Lebih kecil di mobile */
+    padding: 10px 15px;
+  }
+  .hamburger-lines span {
+    width: 20px;
+  }
+}

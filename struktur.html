@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Struktur Kelas X TKJT 1</title>
+<link rel="stylesheet" href="css/struktur.css">
+</head>
+
+<body>
+
+<!-- EFFECT -->
+<div class="grid"></div>
+<div class="stars"></div>
+<div class="meteors"></div>
+
+<!-- HEADER -->
+<header class="top-area">
+  <!-- Logo dan Judul Kelas di Kiri -->
+  <div class="logo-section">
+    <svg class="cyber-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Logo Cyberpunk Sederhana: Ikon Circuit dengan Glow -->
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge> 
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="#00ffff" stroke-width="3" filter="url(#glow)"/>
+      <path d="M20 50 L40 30 L60 70 L80 50" stroke="#00ffff" stroke-width="3" fill="none" filter="url(#glow)"/>
+      <circle cx="50" cy="50" r="5" fill="#00ffff" filter="url(#glow)"/>
+    </svg>
+    <h2 class="class-title">X <span class="tkj-spacing">TKJT</span> 1</h2>
+  </div>
+  
+  <!-- Hamburger Menu di Kanan -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" id="hamburger-toggle">
+      <span class="menu-text">Menu</span>
+      <div class="hamburger-lines">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!-- Dropdown Menu -->
+    <nav class="dropdown-menu" id="dropdown-menu">
+      <a href="beranda.html">Beranda</a>
+      <a href="struktur.html" class="active">Struktur Kelas</a> <!-- Active untuk halaman ini -->
+      <a href="siswa.html">Daftar Siswa</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="tentang.html">Tentang</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<div class="divider"></div>
+
+<!-- CONTENT -->
+<main class="struktur">
+  <h1>STRUKTUR KELAS X TKJT 1</h1>
+
+  <div class="tree">
+
+    <div class="box wali">
+      Wali Kelas
+      <span>Isnaeni Hidayah, S.Kom</span>
+    </div>
+
+    <div class="line vertical"></div>
+
+    <div class="row">
+      <div class="box">
+        Ketua Kelas
+        <span>Adzhan Abbizar</span>
+      </div>
+
+      <div class="box">
+        Wakil Ketua
+        <span>Ayesha Aghitstya</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="box">
+        Sekretaris 1
+        <span>Yuni Aura Putri</span>
+      </div>
+
+      <div class="box">
+        Sekretaris 2
+        <span>Jihan Febrianti</span>
+      </div>
+
+      <div class="box">
+        Bendahara 1
+        <span>Rumsih Amanda</span>
+      </div>
+
+      <div class="box">
+        Bendahara 2
+        <span>Heni Mulyani</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="box">
+        Keamanan
+        <span>Fajar Almahri</span>
+      </div>
+
+      <div class="box">
+        Kebersihan
+        <span>Bunga Citra Lestari</span>
+      </div>
+    </div>
+
+    <!-- LINK JADWAL PIKET -->
+    <div class="piket-link">
+      <a href="piket.html">Jadwal Piket Dan Jadwal Mapel &gt;</a>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+ © STRUKTUR KELAS X TKJT 1
+</footer>
+
+<!-- Script JS -->
+<script src="jsnavigasi/jsnavigasistruktur.js"></script>
+
+</body>
+</html>

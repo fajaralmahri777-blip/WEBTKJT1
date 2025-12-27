@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tentang Kami - X TKJT 1</title>
+<link rel="stylesheet" href="css/tentang.css">
+</head>
+<body>
+
+<!-- EFFECT -->
+<div class="grid"></div>
+<div class="stars"></div>
+<div class="meteors"></div>
+
+<!-- AREA ATAS -->
+<header class="top-area">
+  <!-- Logo dan Judul Kelas di Kiri -->
+  <div class="logo-section">
+    <svg class="cyber-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <!-- Logo Cyberpunk Sederhana: Ikon Circuit dengan Glow -->
+      <defs>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feMerge> 
+            <feMergeNode in="coloredBlur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <circle cx="50" cy="50" r="40" fill="none" stroke="#00ffff" stroke-width="3" filter="url(#glow)"/>
+      <path d="M20 50 L40 30 L60 70 L80 50" stroke="#00ffff" stroke-width="3" fill="none" filter="url(#glow)"/>
+      <circle cx="50" cy="50" r="5" fill="#00ffff" filter="url(#glow)"/>
+    </svg>
+    <h2 class="class-title">X <span class="tkj-spacing">TKJT</span> 1</h2>
+  </div>
+  
+  <!-- Hamburger Menu di Kanan -->
+  <div class="hamburger-menu">
+    <div class="hamburger-icon" id="hamburger-toggle">
+      <span class="menu-text">Menu</span>
+      <div class="hamburger-lines">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+    <!-- Dropdown Menu -->
+    <nav class="dropdown-menu" id="dropdown-menu">
+      <a href="beranda.html">Beranda</a>
+      <a href="struktur.html">Struktur Kelas</a>
+      <a href="siswa.html">Daftar Siswa</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="tentang.html" class="active">Tentang</a> <!-- Active untuk halaman ini -->
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </div>
+</header>
+
+<!-- PEMBATAS -->
+<div class="divider"></div>
+
+<!-- ABOUT US CONTENT -->
+<main class="about-us">
+  <h1>Tentang Kami</h1>
+  <p class="description">
+    Kami adalah Kelas X TKJT 1 SMK Dewantara 2 Cikarang Pusat angkatan 2025-2027. Kami penuh semangat dalam menghadapi perkembangan teknologi yang begitu cepat di era kini. Saat ini, kami sedang mempelajari bidang Jaringan Komputer dan Telekomunikasi, serta berusaha mengembangkan kemampuan praktis dan kerja sama dalam setiap proyek kelas.
+  </p>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  © About Us - X TKJT 1<br>
+  <a href="https://www.instagram.com/x.tkjoneindst/" target="_blank" class="ig-link">@x.tkjoneindst</a>
+</footer>
+
+<!-- Script JS -->
+<script src="jsnavigasi/jsnavigasitentang.js"></script>
+
+</body>
+</html>

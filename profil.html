@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Siswa</title>
+<link rel="stylesheet" href="css/profil.css">
+</head>
+
+<body>
+
+<!-- LOADING -->
+<div id="loading">
+  <div class="loader"></div>
+  <p>Memuat Data Siswa...</p>
+</div>
+
+<!-- SCAN -->
+<div id="scan">
+  <div class="scan-box"></div>
+  <p>Scanning Biodata...</p>
+</div>
+
+<!-- BACKGROUND EFFECT -->
+<div class="grid"></div>
+
+<main class="profil-container hidden" id="profil">
+  <h1>BIODATA SISWA</h1>
+
+  <div class="profil-card">
+
+    <div class="foto-area">
+      <img id="foto" src="fotoprofil/default.jpg" alt="Foto Siswa">
+    </div>
+
+    <div class="biodata">
+      <div class="row"><span class="label">Nama</span><span class="colon">:</span><span id="nama"></span></div>
+      <div class="row"><span class="label">Kelas</span><span class="colon">:</span><span id="kelas"></span></div>
+      <div class="row"><span class="label">Status</span><span class="colon">:</span><span id="status"></span></div>
+      <div class="row"><span class="label">Jenis Kelamin</span><span class="colon">:</span><span id="jk"></span></div>
+    </div>
+
+  </div>
+
+  <a href="siswa.html" class="btn-back">← Kembali ke Daftar Siswa</a>
+</main>
+
+<footer class="footer">
+  © PROFIL SISWA X TKJT 1
+</footer>
+
+<script src="js/profil.js"></script>
+</body>
+</html>
